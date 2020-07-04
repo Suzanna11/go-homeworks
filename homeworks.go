@@ -1,4 +1,4 @@
-package homeworks
+package main
 
 import "fmt"
 
