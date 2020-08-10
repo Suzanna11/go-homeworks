@@ -21,7 +21,7 @@ func main(){
 	k:=nextPrime(1)
 for; k <= num ; k = nextPrime(k){
 	for; num%k == 0; num /= k{
-		fmt.Print(k, "\t" )
+		fmt.Print(k, " " )
 
 	}
 }
