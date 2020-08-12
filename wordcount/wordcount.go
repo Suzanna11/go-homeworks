@@ -12,7 +12,7 @@ func main() {
 	
 
 	reader := bufio.NewReader(os.Stdin)
-    text, _ := reader.ReadString('\n')
+     text, _ := reader.ReadString('\n')
 
 	var wordcount int
 	wordcount = 0
