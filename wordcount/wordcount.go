@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"bufio"
 	"os"
+	
 )
 
 func main() {
@@ -11,21 +12,38 @@ func main() {
 	fmt.Println("Enter the string")
 	
 
-	reader := bufio.NewReader(os.Stdin)
-     text, _ := reader.ReadString('\n')
+	 reader := bufio.NewReader(os.Stdin)
+	 text, _ := reader.ReadString('\n')
+	 
+	 automata(text)
 
-	var wordcount int
-	wordcount = 0
 
-	for _, char := range text {
-		if char == ' ' || char == '\n' || char == '\t' {
-			wordcount++
-		}
+}
 
-	}
-
+const q0 = 0 // there is no input
+const q1 = 1 
 	
 
+func automata(text string) int {
+	var wordcount = 0
+	
+	var q = q0
+	for _, char := range text {
+		
+		switch q{
+		case q0:
+			if char == ' '  {
+				wordcount++
+				q = q1
+			}
+		case q1:
+			if char == ' '{
+				q = q0
+			}
+		}
+	}
+	
+	
 	fmt.Printf("number of words in the string is %d", wordcount)
-
+	return wordcount 
 }
