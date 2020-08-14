@@ -15,30 +15,38 @@ func main() {
 
 	automata(text)
 
+	var wordcount = 0
+	for _, char := range text {
+		if char == '\n' {
+			wordcount++
+		}
+	}
+	wordcount++ //last character
+	fmt.Printf("number of words in the string is %d", wordcount)
+
 }
 
 const q0 = 0 // there is no input
 const q1 = 1
 
 func automata(text string) int {
-	var wordcount = 0
 
+	var wordcount int
 	var q = q0
 	for _, char := range text {
 
 		switch q {
 		case q0:
 			if char == ' ' {
-				wordcount++
 				q = q1
 			}
 		case q1:
 			if char == ' ' {
 				q = q0
 			}
+			wordcount++
 		}
 	}
-
-	fmt.Printf("number of words in the string is %d", wordcount)
+	
 	return wordcount
 }
