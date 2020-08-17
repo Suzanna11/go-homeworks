@@ -13,7 +13,6 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	text, _ := reader.ReadString('\n')
 
-	
 	countingWords(text)
 
 }
