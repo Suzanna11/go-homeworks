@@ -26,7 +26,7 @@ func wordCount(str string) map[string]int {
 			counts[word] = 1
 
 		}
-		fmt
+		
 	}
 
 	return counts

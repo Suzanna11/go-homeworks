@@ -13,40 +13,25 @@ func main() {
 	reader := bufio.NewReader(os.Stdin)
 	text, _ := reader.ReadString('\n')
 
-	automata(text)
-
-	var wordcount = 0
-	for _, char := range text {
-		if char == '\n' {
-			wordcount++
-		}
-	}
-	wordcount++ //last character
-	fmt.Printf("number of words in the string is %d", wordcount)
+	
+	countingWords(text)
 
 }
 
-const q0 = 0 // there is no input
-const q1 = 1
-
-func automata(text string) int {
-
-	var wordcount int
-	var q = q0
+func countingWords(text string) bool {
+	var wordcount = 0
+	var state bool
 	for _, char := range text {
-
-		switch q {
-		case q0:
-			if char == ' ' {
-				q = q1
+		if char == ' ' || char == '\n' || char == '\t' {
+			state = false
+		}else if state == false {
+				state = true
+				wordcount++
 			}
-		case q1:
-			if char == ' ' {
-				q = q0
-			}
-			wordcount++
-		}
 	}
 	
-	return wordcount
-}
+	fmt.Printf("number of words in the string is %d", wordcount)
+	return state
+	}
+
+
