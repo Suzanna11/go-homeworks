@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"regexp"
 	"strconv"
 	"strings"
+	"regexp"
 )
 
 func main() {
@@ -15,15 +15,16 @@ func main() {
 }
 
 func squareHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("squareHandler called")
+	fmt.Println("squareHandler called.")
 	fmt.Println(r)
+
 	array := make([]byte, r.ContentLength)
 	r.Body.Read(array)
 	fmt.Println("Body:", string(array))
 	strBody := string(array)
 
 	matched, err := regexp.MatchString(`[a-z]=[0-9]+`, r.Form.Get("word=number"))
-	if !matched {
+	if matched==false {
 		fmt.Println(err)
 	}
 
