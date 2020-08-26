@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
-	"regexp"
 )
 
 func main() {
@@ -22,11 +21,6 @@ func squareHandler(w http.ResponseWriter, r *http.Request) {
 	r.Body.Read(array)
 	fmt.Println("Body:", string(array))
 	strBody := string(array)
-
-	matched, err := regexp.MatchString(`[a-z]=[0-9]+`, r.Form.Get("word=number"))
-	if matched==false {
-		fmt.Println(err)
-	}
 
 	split := strings.Split(strBody, "=")
 	number, _ := strconv.Atoi(split[1])
