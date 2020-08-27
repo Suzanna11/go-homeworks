@@ -4,22 +4,23 @@ import (
 	"fmt"
 )
 
-type graph struct {
-	NumOfVertices int
-	Edges         [][]int
+type node struct
+{
+    vertex int
+    next *node
 }
-func main(){
-	var n int
-	fmt.Scanln(&n,newGraph(n))
 
+type graph struct
+{
+    numVertices int
+    list *adj
 }
-func newGraph(n int) *graph {
-	return &graph{
-		NumOfVertices: n,
-		Edges:         make([][]int, n),
-	}
-}
-func (g *graph) addEdge(u, v int) {
-	g.Edges[u] = append(g.Edges[u], v)
+
+func (*graph) graph(vertex int){
+	v := vertex
+	var list = new([v]int)
+	var adj = list
+
+
 }
 
